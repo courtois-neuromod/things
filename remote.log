@@ -1,0 +1,1 @@
+f063b9e0-7836-4fb8-ab7b-8257b9ca96fc autoenable=true bucket=cneuromod.things.mri chunk=1GiB datacenter=US encryption=none exporttree=no host=s3.unf-montreal.ca name=s3unf.cneuromod.things.mri port=443 protocol=https requeststyle=path storageclass=STANDARD type=S3 timestamp=1626965720.692728008s
