@@ -31,7 +31,7 @@
   "InstitutionName": "IUGM",
   "InstitutionalDepartmentName": "Department",
   "IntendedFor": [
-    "ses-03/func/sub-03_ses-03_task-things_run-04_bold.nii.gz",
+    "ses-03/func/sub-03_ses-03_task-things_run-04_bold.nii.gz"
 ],
   "MRAcquisitionType": "2D",
   "MagneticFieldStrength": 3,
