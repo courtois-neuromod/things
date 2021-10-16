@@ -31,7 +31,7 @@
   "InstitutionName": "Institut_Universitaire_de_Geriatrie_de_Montreal",
   "InstitutionalDepartmentName": "Department",
   "IntendedFor": [
-    "ses-07/func/sub-01_ses-07_task-things_run-01_bold.nii.gz"
+    "ses-07/func/sub-01_ses-07_task-things_run-01_part-mag_bold.nii.gz"
 ],
   "MRAcquisitionType": "2D",
   "MagneticFieldStrength": 3,
