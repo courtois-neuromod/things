@@ -9,3 +9,4 @@
 *.nii.gz annex.largefiles=anything
 *.tgz annex.largefiles=anything
 *_scans.tsv annex.largefiles=anything
+*.tsv.gz annex.largefiles=anything 
