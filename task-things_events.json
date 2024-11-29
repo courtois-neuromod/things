@@ -42,7 +42,7 @@
     "session_trial_time": "logged computer clock time for each trial",
     "atypical": "boolean flag indicates trials whose entries required relabelling (e.g., condition unseen -> seen) because it was shown out of the pre-planned order",
     "atypical_log": "logged details about what corrections/relabelling were applied to a trial entry; default is empty (no logged issue)",
-    "exclude_session": "boolean flag. True indicates sessions with trial conditions altered due to sessions being administered out of order. We recommend not to include these sessions in analyses of memory effects (e.g., atypical number of image repetitions), but these sessions are appropriate to study image and concept representations in the brain.",
+    "not_for_memory": "boolean flag. True indicates sessions with trial conditions altered due to sessions being administered out of order. We recommend not to include these sessions in analyses of memory effects (e.g., atypical number of image repetitions), but these sessions are appropriate to study image and concept representations in the brain.",
     "delay_days": "for 2nd and 3rd image showings, number of days elapsed since the image was last shown. 0.0 indicates within-session repetitions",
     "delay_seconds": "for within-session repetitions (2nd and 3rd showings), number of seconds elapsed since the image was last shown. 0.0 indicates between-session repetitions for which delays are expressed in days rather than seconds",
     "trials_since_lastrep": "for 2nd and 3rd image showings, number of trials (image shown) since the image was last shown",
