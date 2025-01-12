@@ -32,7 +32,11 @@
   "InstitutionalDepartmentName": "Department",
   "IntendedFor": [
     "ses-08/func/sub-03_ses-08_task-things_run-01_part-mag_bold.nii.gz",
-    "ses-08/func/sub-03_ses-08_task-things_run-02_part-mag_bold.nii.gz"
+    "ses-08/func/sub-03_ses-08_task-things_run-02_part-mag_bold.nii.gz",
+    "ses-08/func/sub-03_ses-08_task-things_run-03_part-mag_bold.nii.gz",
+    "ses-08/func/sub-03_ses-08_task-things_run-04_part-mag_bold.nii.gz",
+    "ses-08/func/sub-03_ses-08_task-things_run-05_part-mag_bold.nii.gz",
+    "ses-08/func/sub-03_ses-08_task-things_run-06_part-mag_bold.nii.gz"
 ],
   "MRAcquisitionType": "2D",
   "MagneticFieldStrength": 3,
