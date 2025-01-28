@@ -20,7 +20,7 @@
       "seen-between": "image was shown to the participant once before during the PREVIOUS session (~1 week ago)",
       "seen-within": "image was shown to the participant once before during the CURRENT session",
       "seen-within-between": "image was shown twice WITHIN the previous session (~1 week ago), is shown for the 3rd time during the current session",
-      "seen-between-within": "image was first shown (once) during the previous session (~1 week ago), it was shown a second time during the current session, and is now shown for the third time",
+      "seen-between-within": "image was first shown (once) during the previous session (~1 week ago), it was shown a second time during the current session, and is now shown for the third time"
     },
     "repetition": "the number of times an image has been shown (including current)",
     "run": "current session's fMRI run number",
