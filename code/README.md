@@ -1,7 +1,9 @@
 THINGS events.tsv and eye-tracking analyses
 ===========================================
 
-# Events.tsv files validation & correction
+# Events.tsv files processing
+
+## Validation & correction
 
 ``cleanup/clean_events.py`` processes raw ``*events.tsv`` files outputted by Psychopy to validate and correct (if necessary) the condition, subcondition and accuracy metrics, based on the images previously shown to a participant throughout the multi-session task. The script also computes the duration of delays between image repetitions (in days for between-session repeats, and in seconds for within-session repeats).
 
@@ -16,10 +18,24 @@ The file ``qc_notes.md`` contains additional details about any issue with the ex
 - If needed: a subject's ``sub-*_ses-*_202xxxxx-xxxxxx.pupil/task-thingsmemory_run-*/000/eye0_timestamps.npy`` eyetracking timestamp files to derive onset trial-wise onset times within each run.
 
 **Output**:
-- De-identified, validated and updated ``*events.tsv`` files (to be released). Columns and their values are described in ``cneuromod-things/THINGS/fmriprep/sourcedata/things/task-things_events.json``
+- De-identified, validated and updated ``*events.tsv`` files (to be released). Columns and their values are described in ``../task-things_events.json``
 - ``sub-*_desc-run_errorReport.txt``, a text file that lists every run for which there is no psychopy log file (in those cases, trialwise timestamps are estimated from eyetracking data), or for which atypical entries (needing corrections) were flagged.
 - ``sub-*_desc-trial_errorReport.txt``, a text file that lists every trial for which a correction was made (e.g., to the repetition number, condition, subcondition or accuracy) due to a deviation from the pre-planned protocol (e.g., a session was administered out of order).
 - ``sub-*_task-things_concatTrials.tsv``, a temp file that concatenates all trials across sessions, for QCing (cannot be released because it contains scanning dates).
+
+
+## Processing of Last Recorded Key Press
+
+The THINGS task logged all participant answers (button presses) given within a trial's allocated response time window, making self-correction possible. By default, the first logged key press was the one used to derive behavioural performance metrics (accuracy and reaction time) in the raw output files.
+
+To account for self-correction in behavioural analyses, ``cleanup/add_lastKP.py`` derives additional metrics of task performance from the last logged key press (rather than the first one). These metrics are added to the corrected ``*events.tsv`` files (outputted by ``cleanup/clean_events.py``).
+
+**Input**:
+- De-identified, validated and corrected ``*events.tsv`` files. Columns and their values are described in ``../task-things_events.json``
+
+**Output**:
+- De-identified, validated and corrected ``*events.tsv`` files (overwritten), with additional columns to interpret behavioural responses based on the last logged key press. Additions include the ``multiple_keypresses`` column (bool) to flag trials with multiple logged key presses, and ``*_lastkeypress`` columns with behavioural metrics derived from the last key press (see ``../task-things_events.json`` for a full description of columns and their values).
+
 
 --------------------
 
@@ -117,7 +133,7 @@ The script ``eyetracking/step3_reconcile_events.py`` reconciles two sets of ``ev
 
 Note that a handful of ``raw events.tsv`` files required manual relabelling to be properly associated with their validated file (e.g., ``sub-06``'s ``ses-020`` was accidentally ran and saved under sub-01), so this step is not fully automated.
 
-The fixation compliance metrics included in the output ``events.tsv`` files are described in ``cneuromod-things/THINGS/fmriprep/sourcedata/things/task-things_events.json``
+The fixation compliance metrics included in the output ``events.tsv`` files are described in ``../task-things_events.json``
 
 
 **Input**:
