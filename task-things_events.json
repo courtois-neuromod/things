@@ -30,18 +30,21 @@
     "response_mapping_flip_v": "whether the button-to-response mapping was flipped vertically for this trial, True or False",
     "onset flip": "exact time at which the image was 'flipped' (appeared on screen w psychopy), in seconds",
     "offset_flip": "exact time at which the image was 'flipped' offscreen (disappeared from screen w psychopy), in seconds",
+
     "keypresses": "list of recorded button presses during current trial (a, b, x and y); by default, the FIRST recorded answer is considered the trial's answer (to assess RT and accuracy) although behavioural metrics are also derived from the last recorded key press in columns labelled *_lastkeypress",
     "response": "participant answer, derived by mapping the FIRST recorded key press with the trial's response mapping (flipped or not, horizontally and/or vertically); 2 = seen, confident; 1 = seen, not confident; -1 = unseen, not confident; -2 unseen, condident",
     "response_txt": "participant's mapping of the first recorded key press to behavioural response. 'Seen' = the image has been shown before; 'unseen' = 'the image is shown for the first time'",
     "error": "True = the participant's response (seen / unseen) does not correspond to the condition; False (no error) = the participant's response corresponds to the condition",
     "response_confidence": "True = the participant gave their answer (seen / unseen) with high confidence (sure seen / sure unseen); False = the participant gave their answer with low confidence (unsure seen / unsure unseen). Based on FIRST key press.",
     "response_time": "Time in seconds between the image onset ('onset') and the FIRST recorded button press",
+
     "multiple_keypresses": "True = more than one reponse (key press) was logged for a given trial; False = one or no logged key presses.",
     "response_lastkeypress": "participant answer, derived by mapping the LAST recorded key press with the trial's response mapping (flipped or not, horizontally and/or vertically); 2 = seen, confident; 1 = seen, not confident; -1 = unseen, not confident; -2 unseen, condident",
     "response_txt_lastkeypress": "participant's mapping of the FIRST recorded key press to behavioural response. 'Seen' = the image has been shown before; 'unseen' = 'the image is shown for the first time'",
     "error_lastkeypress": "True = the participant's response (seen / unseen) does not correspond to the condition; False (no error) = the participant's response corresponds to the condition",
     "response_confidence_lastkeypress": "True = the participant gave their answer (seen / unseen) with high confidence (sure seen / sure unseen); False = the participant gave their answer with low confidence (unsure seen / unsure unseen). Based on LAST key press.",
     "response_time_lastkeypress": "Time in seconds between the image onset ('onset') and the LAST recorded button press",
+
     "duration_flip": "difference between 'offset_flip' and 'onset_flip (real duration of shown image)'",
     "ran": "Should always be 1.",
     "order": "order in which the images were presented within the current fMRI run, from 0",
