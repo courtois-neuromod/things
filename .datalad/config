@@ -2,3 +2,5 @@
 	fake-dates = true
 [datalad "dataset"]
 	id = 5151ad3c-321e-4111-abf0-95fee0dcbb90
+[datalad "get"]
+	subdataset-source-candidate-620cneuromodhttp = https://github.com/courtois-neuromod/things.{name}.git
