@@ -160,8 +160,8 @@ def get_timing(
 
             # insert additional columns
             # subject, session, flag to exclude, time (date), time (computer time for session's trial)
-            run_df.insert(loc=0, column='subject', value=sub_num, allow_duplicates=True)
-            run_df.insert(loc=1, column='session', value=ses_num, allow_duplicates=True)
+            run_df.insert(loc=0, column='subject_id', value=sub_num, allow_duplicates=True)
+            run_df.insert(loc=1, column='session_id', value=ses_num, allow_duplicates=True)
             run_df.insert(loc=2, column='not_for_memory', value=flag_to_exclude, allow_duplicates=True)
             run_df.insert(loc=3, column='date_time', value=ses_time, allow_duplicates=True)
 
@@ -246,7 +246,7 @@ def fix_entries(
     # slow, tedious, clunky for loop bruteforcing its way through the DataFrame
     for i in tqdm.tqdm(range(df_trials.shape[0]), desc='validating all trial entries'):
         img_name = os.path.basename(df_trials['image_path'][i])
-        ses = df_trials['session'][i]
+        ses = df_trials['session_id'][i]
         run = df_trials['run'][i]
         trial_num = df_trials['order'][i]
 
@@ -265,7 +265,7 @@ def fix_entries(
                 df_trials['atypical'][i] = True
                 df_trials['atypical_log'][i] += '_condition:unseen'
             # validate subcondition
-            df_ses = df_trials[df_trials['session']==ses]
+            df_ses = df_trials[df_trials['session_id']==ses]
             df_img = df_ses[df_ses['image_path']==df_trials['image_path'][i]]
             subcon_val = 'unseen-within' if df_img.shape[0] > 1 else 'unseen-between'
             if not df_trials['subcondition'][i] == subcon_val:
@@ -300,7 +300,7 @@ def fix_entries(
             # update entry to dict of seen images
             old_i = shown_images[img_name]['idx']
             df_trials['trials_since_lastrep'][i] = i - old_i
-            if df_trials['session'][old_i] == ses:
+            if df_trials['session_id'][old_i] == ses:
                 df_trials['delay_days'][i] = 0
                 df_trials['delay_seconds'][i] = float(df_trials['session_trial_time'][i]) - float(df_trials['session_trial_time'][old_i])
                 shown_images[img_name]['previous_reps'] += '-within'
@@ -368,14 +368,14 @@ def export_events_files(
     Export newly updated/corrected *events.tsv files with
     additional timing columns, for valid sessions only
     """
-    id_cols = ['subject', 'session']
+    id_cols = ['subject_id', 'session_id']
     added_cols = ['session_trial_time', 'atypical', 'atypical_log', 'not_for_memory',
                   'delay_days', 'delay_seconds', 'trials_since_lastrep']
     cols_to_keep = id_cols + cols_to_keep + added_cols
 
     for ses_num in tqdm.tqdm(ses_list, desc='exporting updated event files'):
         if 'b' not in ses_num:
-            df_ses = df_trials[df_trials['session']==ses_num]
+            df_ses = df_trials[df_trials['session_id']==ses_num]
             run_list = sorted(list(np.unique(df_ses['run'])))
 
             for run in run_list:

@@ -1,6 +1,6 @@
 {
-    "subject": "participant id",
-    "session": "session number",
+    "subject_id": "participant id",
+    "session_id": "session number",
     "TrialNumber": "trial number within the current run, from 1 to 60",
     "image_path": "path to image file within data repository",
     "condition": {
