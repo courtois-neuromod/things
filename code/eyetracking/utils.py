@@ -32,39 +32,39 @@ def create_gaze_path(row, file_path):
     '''
     for each run, create path to deserialized gaze file
     '''
-    s = row['subject']
-    ses = row['session']
+    s = row['subject_id']
+    ses = row['session_id']
     task = row["task"]
 
     task_root = file_path.split('/')[-1]
     if task_root == 'mario3':
         task = 'task-mario3'
 
-    return f'{file_path}/{s}/{ses}/{s}_{ses}_{row["run"]}_{row["file_number"]}_{task}_gaze2D.npz'
+    return f'{file_path}/{s}/{ses}/{s}_{ses}_{row["run_id"]}_{row["file_number"]}_{task}_gaze2D.npz'
 
 
 def create_event_path(row, file_path, log=False):
     '''
     for each run, create path to events.tsv file
     '''
-    s = row['subject']
-    ses = row['session']
+    s = row['subject_id']
+    ses = row['session_id']
     if log:
         return f'{file_path}/{s}/{ses}/{s}_{ses}_{row["file_number"]}.log'
     else:
         if row['task'] in ['task-bar', 'task-rings', 'task-wedges', 'task-flocdef', 'task-flocalt']:
             return f'{file_path}/{s}/{ses}/{s}_{ses}_{row["file_number"]}_{row["task"]}_events.tsv'
         else:
-            return f'{file_path}/{s}/{ses}/{s}_{ses}_{row["file_number"]}_{row["task"]}_{row["run"]}_events.tsv'
+            return f'{file_path}/{s}/{ses}/{s}_{ses}_{row["file_number"]}_{row["task"]}_{row["run_id"]}_events.tsv'
 
 
 def create_ip_path(row, file_path):
     '''
     for each run, create path to info.player.json file
     '''
-    s = row['subject']
-    ses = row['session']
-    r = row['run']
+    s = row['subject_id']
+    ses = row['session_id']
+    r = row['run_id']
     t = row['task']
     fnum = row['file_number']
 
@@ -78,7 +78,7 @@ def create_dg_path(row, file_path):
     '''
     for each run, create path to deepgaze predictions file (friends task)
     '''
-    s, epi = row['run'].split('e')
+    s, epi = row['run_id'].split('e')
     ep = (epi[:-1]).zfill(2) + epi[-1]
     task = row['task']
 
@@ -89,7 +89,7 @@ def create_mkv_path(row, file_path):
     '''
     for each run, create path to .mkv stimulus file (friends task)
     '''
-    s, epi = row['run'].split('e')
+    s, epi = row['run_id'].split('e')
     ep = (epi[:-1]).zfill(2) + epi[-1]
     task = row['task']
 

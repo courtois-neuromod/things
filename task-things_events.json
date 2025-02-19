@@ -23,7 +23,7 @@
       "seen-between-within": "image was first shown (once) during the previous session (~1 week ago), it was shown a second time during the current session, and is now shown for the third time"
     },
     "repetition": "the number of times an image has been shown (including current)",
-    "run": "current session's fMRI run number",
+    "run_id": "current session's fMRI run number",
     "onset": "time since scanner onset in seconds",
     "duration": "time during which the image is shown, in seconds",
     "response_mapping_flip_h": "whether the button-to-response mapping was flipped horizontally for this trial, True or False (to counterbalance motor response)",

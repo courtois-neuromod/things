@@ -156,7 +156,7 @@ def get_timing(
             run_num = ids[-2].split('-')[-1]
             assert f'sub-{sub_num}' == sub
             assert sess == ses_num
-            assert int(run_num) == run_df['run'][0]
+            assert int(run_num) == run_df['run_id'][0]
 
             # insert additional columns
             # subject, session, flag to exclude, time (date), time (computer time for session's trial)
@@ -247,7 +247,7 @@ def fix_entries(
     for i in tqdm.tqdm(range(df_trials.shape[0]), desc='validating all trial entries'):
         img_name = os.path.basename(df_trials['image_path'][i])
         ses = df_trials['session_id'][i]
-        run = df_trials['run'][i]
+        run = df_trials['run_id'][i]
         trial_num = df_trials['order'][i]
 
         # the image is UNSEEN
@@ -376,7 +376,7 @@ def export_events_files(
     for ses_num in tqdm.tqdm(ses_list, desc='exporting updated event files'):
         if 'b' not in ses_num:
             df_ses = df_trials[df_trials['session_id']==ses_num]
-            run_list = sorted(list(np.unique(df_ses['run'])))
+            run_list = sorted(list(np.unique(df_ses['run_id'])))
 
             for run in run_list:
                 # exclude run 0, run 40, etc
@@ -388,7 +388,7 @@ def export_events_files(
                         out_dir,
                         f'sub-{sub_num}_{ses_num}_task-things_run-{str(int(run))}_events.tsv',
                     )
-                    df_run = df_ses[df_ses['run']==run]
+                    df_run = df_ses[df_ses['run_id']==run]
 
                     if True in list(np.unique(df_run['atypical'])):
                         run_error_report.write(

@@ -141,7 +141,7 @@ def compile_file_list(
     col_names = [
         'subject_id',
         'session_id',
-        'run',
+        'run_id',
         'task',
         'file_number',
         'has_pupil',
