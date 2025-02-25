@@ -139,9 +139,9 @@ def compile_file_list(
 ) -> tuple:
 
     col_names = [
-        'subject',
-        'session',
-        'run',
+        'subject_id',
+        'session_id',
+        'run_id',
         'task',
         'file_number',
         'has_pupil',

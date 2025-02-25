@@ -663,7 +663,7 @@ def driftCorr_ETthings(
             """
             onset_time = get_onset_time(
                 row['log_path'],
-                row['run'],
+                row['run_id'],
                 row['infoplayer_path'],
                 run_gaze[10]['timestamp'],
             )
